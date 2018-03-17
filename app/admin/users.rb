@@ -12,7 +12,7 @@ ActiveAdmin.register User do
 #   permitted
 # end
 
-  permit_params :first_name, :last_name, :email, :phone,
+  permit_params :username, :password, :first_name, :last_name, :email, :phone,
                 :address, :city, :post_code, :province
 
 end

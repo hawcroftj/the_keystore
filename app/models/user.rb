@@ -3,6 +3,7 @@ class User < ApplicationRecord
 
   has_many :orders
 
-  validates :first_name, :last_name, :email, :address,
+  validates :username, :password, :first_name, :last_name, :email, :address,
             :city, :post_code, :province_id, presence: true
+  validates :username, :email, uniqueness: true
 end
