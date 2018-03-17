@@ -12,6 +12,7 @@ ActiveAdmin.register Category do
 #   permitted
 # end
 
-  permit_params :name, :description, :image
+  permit_params :name, :description, :image,
+                products: [:id, :name, :description, :price, :image, :category_id, :_destroy]
 
 end

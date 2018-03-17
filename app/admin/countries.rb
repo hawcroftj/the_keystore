@@ -12,6 +12,7 @@ ActiveAdmin.register Country do
 #   permitted
 # end
 
-  permit_params :name, :gst_rate
+  permit_params :name, :gst_rate,
+                provinces: [:id, :name, :pst_rate, :hst_rate, :country_id, :_destroy]
 
 end
