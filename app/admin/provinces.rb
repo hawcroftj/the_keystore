@@ -12,6 +12,9 @@ ActiveAdmin.register Province do
 #   permitted
 # end
 
-  permit_params :name, :pst_rate, :hst_rate, :country_id
+  permit_params :name, :pst_rate, :hst_rate, :country_id,
+                users: [:id, :username, :password, :first_name,
+                        :last_name, :email, :phone, :address, :city,
+                        :post_code, :province_id, :_destroy]
 
 end
