@@ -12,4 +12,6 @@ ActiveAdmin.register OrderStatus do
 #   permitted
 # end
 
+  permit_params :name, :description
+
 end

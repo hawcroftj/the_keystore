@@ -12,4 +12,6 @@ ActiveAdmin.register Country do
 #   permitted
 # end
 
+  permit_params :name, :gst_rate
+
 end

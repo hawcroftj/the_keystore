@@ -12,4 +12,6 @@ ActiveAdmin.register Category do
 #   permitted
 # end
 
+  permit_params :name, :description, :image
+
 end
