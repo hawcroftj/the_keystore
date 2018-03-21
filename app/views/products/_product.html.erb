@@ -1,0 +1,9 @@
+<h1><%= product.name %></h1>
+<p><%= product.description %></p>
+<p>Category: <%= product.category.name %></p>
+<p>$<%= product.price %></p>
+<% if more_info_link %>
+  <p><%= link_to 'More Info', product %></p>
+<% elsif index_link %>
+  <p><%= link_to 'Back to Products', root_path %></p>
+<% end %>
