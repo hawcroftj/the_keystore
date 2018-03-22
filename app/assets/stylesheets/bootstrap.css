@@ -4,6 +4,23 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
+/* Custom styles */
+.ks-pink-bg {
+    background-color: #FF71CE !important;
+}
+.ks-blue-bg {
+    background-color: #01CDFE !important;
+}
+.ks-green-bg {
+    background-color: #05FFA1 !important;
+}
+.ks-purple-bg {
+    background-color: #B967FF !important;
+}
+.ks-yellow-bg {
+    background-color: #FFFb96 !important;
+}
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -11,6 +28,7 @@ html {
 }
 body {
   margin: 0;
+  background: #01CDFE !important;
 }
 article,
 aside,
