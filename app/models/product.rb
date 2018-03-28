@@ -7,6 +7,9 @@ class Product < ApplicationRecord
   has_attached_file :image, styles: { large:  '600x600>',
                                             medium: '300x300>',
                                             thumb:  '150x150#' }
+
+  # if a _destroy flag is applied from the Admin dashboard,
+  # clear image and all attributes upon successful form submission
   def image_attributes=(attributes)
     image.clear if has_destroy_flag?(attributes) && !image.dirty?
   end

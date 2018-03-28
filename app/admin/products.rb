@@ -24,10 +24,10 @@ ActiveAdmin.register Product do
       f.input :price
       f.input :category_id
       f.input :image, as: :file
-      # delete image
+      # if an image is present, allow deletion
       if f.object.image.present?
         f.semantic_fields_for :image_attributes do |image_fields|
-          image_fields.input :_destroy, as: :boolean, label: 'Delete?'
+          image_fields.input :_destroy, as: :boolean, label: 'Delete Image?'
         end
       end
     end
