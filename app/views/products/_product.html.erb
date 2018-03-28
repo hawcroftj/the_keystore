@@ -1,12 +1,17 @@
-<%= image_tag product.image.url(:thumb) %>
-<h3><%= product.name %></h3>
-<p>Category: <%= product.category.name %></p>
-<p><%= product.description %></p>
+<% if full_desc %>
+  <%= image_tag product.image.url(:medium) %>
+  <h1><%= product.name %></h1>
+  <p class="font-italic small m-1">Category: <%= product.category.name %></p>
+  <p><%= product.description %></p>
+<% else %>
+  <%= image_tag product.image.url(:thumb) %>
+  <h4><%= link_to product.name, product %></h4>
+  <p class="font-italic small m-1">Category: <%= product.category.name %></p>
+  <p><%= product.description.first(70) %>... <%= link_to 'more', product %></p>
+<% end %>
 <p>
-  CDN $<%= product.price %>
-  <% if more_info_link %>
-    <%= link_to 'More Info', product %>
-  <% elsif index_link %>
+  <kbd>CDN $<%= product.price %></kbd>
+  <% if index_link %>
     <%= link_to 'Back to Products', root_path %>
   <% end %>
 </p>

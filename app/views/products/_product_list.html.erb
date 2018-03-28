@@ -1,5 +1,11 @@
-<p><%= link_to('New Products', new_product_path) %></p>
-<p><%= link_to('Updated Products', updated_products_path) %></p>
+<ul class="list-inline">
+  <li class="list-inline-item">
+    <%= link_to('New Products', new_product_path) %>
+  </li>
+  <li class="list-inline-item">
+    <%= link_to('Updated Products', updated_products_path) %>
+  </li>
+</ul>
 
 <!-- Render Search and Pagination tools -->
 <%= render partial: 'display_tools' %>
@@ -9,12 +15,14 @@
   <% @products.each_slice(3) do |slice_3_products| %>
     <tr>
       <% slice_3_products.each do |product| %>
-        <td class="col-md-3">
-          <%= render partial: 'product', object: product,
-                     locals: { more_info_link: true, index_link: false } %>
+        <td class="col-md-3 ">
+            <%= render partial: 'product', object: product,
+                       locals: { more_info_link: true, index_link: false, full_desc: false } %>
         </td>
       <% end %>
     </tr>
   <% end %>
 </table>
+
+<!-- Additional Pagination -->
 <%= paginate(@products) %>
