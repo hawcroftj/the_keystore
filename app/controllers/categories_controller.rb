@@ -1,5 +1,9 @@
 class CategoriesController < ApplicationController
+  def index
+    @categories = Category.all
+  end
+
   def show
-    @products = Category.products.all
+    @category = Category.find(params[:id])
   end
 end

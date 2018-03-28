@@ -1,2 +1,4 @@
-<h1>Categories#show</h1>
-<p>Find me in app/views/categories/show.html.erb</p>
+<h1><%= @category.name.pluralize %></h1>
+<% @category.products.each do |product| %>
+  <p><%= link_to(product.name, product) %></p>
+<% end %>

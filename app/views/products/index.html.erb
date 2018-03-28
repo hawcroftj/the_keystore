@@ -1,8 +1,5 @@
 <div class="container">
   <h1>Products</h1>
-  <%= @categories.each do |category| %>
-    <%= link_to 'Category', category %>
-  <% end %>
   <table class="table">
     <% @products.each_slice(3) do |slice_3_products| %>
       <tr>
