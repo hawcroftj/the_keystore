@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
   resources :categories, only: [:index, :show]
-  resources :products, only: [:index, :show]
+
+  # resources :products, only: [:index, :show]
+  resources :products do
+    collection do
+      get 'new'
+      get 'updated'
+    end
+  end
 
   get '/categories/:id', to: 'categories#show'
   get '/categories/', to: 'categories#index'

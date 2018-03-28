@@ -1,15 +1,4 @@
 <div class="container">
   <h1>Products</h1>
-  <table class="table">
-    <% @products.each_slice(3) do |slice_3_products| %>
-      <tr>
-        <% slice_3_products.each do |product| %>
-          <td class="col-md-3">
-              <%= render partial: 'product', object: product,
-                       locals: { more_info_link: true, index_link: false } %>
-          </td>
-        <% end %>
-      </tr>
-    <% end %>
-  </table>
+  <%= render partial: 'product_list', object: @products %>
 </div>

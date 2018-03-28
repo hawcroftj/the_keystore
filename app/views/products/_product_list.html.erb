@@ -1,0 +1,16 @@
+<p><%= link_to('New Products', new_product_path) %></p>
+<p><%= link_to('Updated Products', updated_products_path) %></p>
+<%= paginate(@products) %>
+<table class="table">
+  <% @products.each_slice(3) do |slice_3_products| %>
+    <tr>
+      <% slice_3_products.each do |product| %>
+        <td class="col-md-3">
+          <%= render partial: 'product', object: product,
+                     locals: { more_info_link: true, index_link: false } %>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+<%= paginate(@products) %>

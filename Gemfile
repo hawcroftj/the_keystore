@@ -37,6 +37,8 @@ gem 'activerecord'
 gem 'activeadmin'
 gem 'devise'
 
+gem 'kaminari'
+
 gem 'paperclip'
 
 group :development, :test do
