@@ -1,2 +1,11 @@
-<h1>Search#products</h1>
-<p>Find me in app/views/search/products.html.erb</p>
+<h1>Search Results</h1>
+<p><%= pluralize(@products.size, 'result') %> for "<%= @terms %>"</p>
+
+<ul>
+  <% @products.each do |product| %>
+    <li>
+      <p><%= image_tag product.image.url(:thumb) %></p>
+      <p><%= link_to product.name, product %></p>
+    </li>
+  <% end %>
+</ul>

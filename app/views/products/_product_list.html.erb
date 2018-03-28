@@ -1,6 +1,20 @@
 <p><%= link_to('New Products', new_product_path) %></p>
 <p><%= link_to('Updated Products', updated_products_path) %></p>
-<%= paginate(@products) %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+      <%= form_tag(search_products_path, method: "get") do %>
+        <%= label_tag(:q, "Search Products:") %>
+        <%= text_field_tag(:q) %>
+        <%= submit_tag("Search") %>
+      <% end %>
+    </div>
+    <div class="col-sm-4">
+      <%= paginate(@products) %>
+    </div>
+  </div>
+</div>
 <table class="table">
   <% @products.each_slice(3) do |slice_3_products| %>
     <tr>
