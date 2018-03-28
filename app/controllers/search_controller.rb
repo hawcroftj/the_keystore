@@ -1,11 +1,11 @@
 class SearchController < ApplicationController
   def products
     @terms = params[:q]
-    @products = Product.where("name LIKE (?)", "%#{@terms}%")
-  end
-
-  def categories
-    @terms = params[:q]
-    @category = Category.where("name LIKE (?)", "%#{@terms}%")
+    if params[:category_id].blank?
+      @products = Product.where("name LIKE (?)", "%#{@terms}%")
+    else
+      category = Category.find(params[:category_id])
+      @products = category.products.where("name LIKE (?)", "%#{@terms}%")
+    end
   end
 end
