@@ -7,6 +7,10 @@ class Product < ApplicationRecord
   has_attached_file :image, styles: { large:  '600x600>',
                                             medium: '300x300>',
                                             thumb:  '150x150#' }
+  def image_attributes=(attributes)
+    image.clear if has_destroy_flag?(attributes) && !image.dirty?
+  end
+
   validates_attachment :image,
                        content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
 
