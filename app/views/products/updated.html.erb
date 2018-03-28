@@ -1,4 +1,5 @@
 <div class="container">
   <h1>Updated Products</h1>
-  <%= render partial: 'product_list', object: @products %>
+  <%= render partial: 'product_list', object: @products,
+             locals: { updated_products: true }%>
 </div>

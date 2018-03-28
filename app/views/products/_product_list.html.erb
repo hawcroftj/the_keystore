@@ -1,21 +1,10 @@
 <p><%= link_to('New Products', new_product_path) %></p>
 <p><%= link_to('Updated Products', updated_products_path) %></p>
 
-<div class="container">
-  <div class="row">
-    <div class="col-sm-8">
-      <%= form_tag(search_products_path, method: "get") do %>
-        <%= label_tag(:q, "Search Products:") %>
-        <%= select_tag "category_id", options_from_collection_for_select(Category.all, "id", "name"), prompt: 'Choose Category' %>
-        <%= text_field_tag(:q) %>
-        <%= submit_tag("Search") %>
-      <% end %>
-    </div>
-    <div class="col-sm-4">
-      <%= paginate(@products) %>
-    </div>
-  </div>
-</div>
+<!-- Render Search and Pagination tools -->
+<%= render partial: 'display_tools' %>
+
+<!-- Display Products as table, rows of 3 -->
 <table class="table">
   <% @products.each_slice(3) do |slice_3_products| %>
     <tr>
