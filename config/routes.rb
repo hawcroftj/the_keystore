@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'search/products'
+
+  get 'search/categories'
+
   resources :categories, only: [:index, :show]
 
   # resources :products, only: [:index, :show]
