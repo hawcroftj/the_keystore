@@ -1,17 +1,18 @@
 <% if full_desc %>
-  <%= image_tag product.image.url(:medium) %>
-  <h1><%= product.name %></h1>
-  <p class="font-italic small m-1">Category: <%= product.category.name %></p>
-  <p><%= product.description %></p>
+  <%= render partial: 'product_show', object: product %>
 <% else %>
   <%= image_tag product.image.url(:thumb) %>
-  <h4><%= link_to product.name, product %></h4>
-  <p class="font-italic small m-1">Category: <%= product.category.name %></p>
-  <p><%= product.description.first(70) %>... <%= link_to 'more', product %></p>
+  <h4>
+    <strong>
+      <%= link_to product.name, product, class: 'ks-pink-txt' %>
+    </strong>
+  </h4>
+  <p class="font-italic small m-1">
+    Category: <%= product.category.name %> |
+    <%= product.updated_at.strftime("Updated: %b. %e at %H:%M %Z") %>
+  </p>
+  <p>
+    <%= product.description.first(70) %>... <%= link_to 'more', product %>
+  </p>
+  <p><kbd>CDN $<%= product.price %></kbd></p>
 <% end %>
-<p>
-  <kbd>CDN $<%= product.price %></kbd>
-  <% if index_link %>
-    <%= link_to 'Back to Products', root_path %>
-  <% end %>
-</p>

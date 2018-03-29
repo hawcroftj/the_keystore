@@ -8,19 +8,31 @@
  /* Custom styles */
 .ks-pink-bg {
     background-color: #FF71CE !important;
-}
+} .ks-pink-txt {
+    color: #ad5784 !important;
+  }
 .ks-blue-bg {
     background-color: #01CDFE !important;
-}
+} .ks-blue-txt {
+      color: #0197bd !important;
+  }
 .ks-green-bg {
     background-color: #05FFA1 !important;
-}
+} .ks-green-txt {
+      color: #039d62 !important;
+  }
 .ks-purple-bg {
     background-color: #B967FF !important;
-}
+} .ks-purple-txt {
+      color: #653589 !important;
+  }
 .ks-yellow-bg {
     background-color: #FFFb96 !important;
-}
+} .ks-yellow-txt {
+      color: #83814b !important;
+  }
+
+/* Search bar styles */
 .custom_form input, select{
     padding: 0 !important;
     margin: 0 !important;
@@ -79,6 +91,7 @@ html {
   -ms-text-size-adjust: 100%;
   -ms-overflow-style: scrollbar;
   -webkit-tap-highlight-color: transparent;
+    padding-bottom: 5px;
     background-color: #01CDFE !important;
 }
 
@@ -91,6 +104,7 @@ article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, s
 }
 
 body {
+
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 1rem;
