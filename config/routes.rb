@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users, only: [:show]
   get 'user/:username', to: 'users#show'
   get 'register', to: 'users#new'
   post 'users', to: 'users#create'
