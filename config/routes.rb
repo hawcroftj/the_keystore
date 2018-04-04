@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :users, only: [:new, :show]
+  get 'user/:username', to: 'users#show'
+  post 'users', to: 'users#create'
 
   # search routes
   get 'search/products'
@@ -14,7 +15,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get '/categories/:id', to: 'categories#show'
+  get '/categories/:id', to: 'categories#show', id: /\d+/
   get '/categories/', to: 'categories#index'
 
   root to: 'products#index'
