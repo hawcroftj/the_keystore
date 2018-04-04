@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-  get 'search/products'
+  resources :users, only: [:new, :show]
 
+  # search routes
+  get 'search/products'
   get 'search/categories'
 
   resources :categories, only: [:index, :show]
 
-  # resources :products, only: [:index, :show]
   resources :products do
     collection do
       get 'new'
