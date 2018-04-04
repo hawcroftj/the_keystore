@@ -1,2 +1,51 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<div class="container">
+  <h1>Sign Up</h1>
+
+  <%= form_for @user, html: {class: "form"} do |f| %>
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="form-group">
+          <%= f.label :username, class: "ks-pink-txt" %>
+          <%= f.text_field :username, class: "form-control" %>
+
+          <%= f.label :password, class: "ks-pink-txt" %>
+          <%= f.text_field :password, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :first_name, class: "ks-pink-txt" %>
+          <%= f.text_field :first_name, class: "form-control" %>
+
+          <%= f.label :last_name, class: "ks-pink-txt" %>
+          <%= f.text_field :last_name, class: "form-control" %>
+
+          <%= f.label :email, class: "ks-pink-txt" %>
+          <%= f.text_field :email, class: "form-control" %>
+
+          <%= f.label :phone, class: "ks-pink-txt" %>
+          <%= f.text_field :phone, class: "form-control" %>
+
+          <%= f.label :address, class: "ks-pink-txt" %>
+          <%= f.text_field :address, class: "form-control" %>
+
+          <%= f.label :city, class: "ks-pink-txt" %>
+          <%= f.text_field :city, class: "form-control" %>
+        </div>
+        <div class="row">
+          <div class="col-sm-5">
+            <%= f.label :post_code, class: "ks-pink-txt" %>
+            <%= f.text_field :post_code, class: "form-control" %>
+          </div>
+          <div class="col-sm-3">
+            <%= f.label :province_id, class: "ks-pink-txt" %>
+            <%= f.collection_select(:province_id, Province.all, :id, :name) %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-8">
+      <%= f.submit %>
+      </div>
+    </div>
+  <% end %>
+</div>

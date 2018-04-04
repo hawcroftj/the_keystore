@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'user/:username', to: 'users#show'
+  get 'register', to: 'users#new'
   post 'users', to: 'users#create'
 
   # search routes
