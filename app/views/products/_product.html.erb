@@ -14,5 +14,7 @@
   <p>
     <%= product.description.first(70) %>... <%= link_to 'more', product %>
   </p>
-  <p><kbd>CDN $<%= product.price %></kbd></p>
+  <p>
+    <kbd>CDN $<%= product.price %></kbd>
+  </p>
 <% end %>

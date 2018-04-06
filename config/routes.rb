@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   resources :users, only: [:show]
   get 'user/:username', to: 'users#show'
   get 'register', to: 'users#new'
@@ -12,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :products do
     collection do
+      get 'index'
       get 'new'
       get 'updated'
     end
@@ -19,6 +22,10 @@ Rails.application.routes.draw do
 
   get '/categories/:id', to: 'categories#show', id: /\d+/
   get '/categories/', to: 'categories#index'
+
+  get '/login', to: 'sessions#new'
+  delete '/logout', to: 'sessions#destroy'
+  post '/login', to: 'sessions#create'
 
   root to: 'products#index'
 
