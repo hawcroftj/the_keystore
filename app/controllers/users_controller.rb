@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :initialize_session
+  before_action :load_cart
+
   def show
     # display current user info (my account page)
     @user = User.find(params[:id])
@@ -23,5 +26,15 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, :password, :first_name,
                                  :last_name, :email, :phone, :address,
                                  :city, :post_code, :province_id)
+  end
+
+  private
+
+  def initialize_session
+    session[:cart] ||= []
+  end
+
+  def load_cart
+    @cart_products = Product.find(session[:cart])
   end
 end

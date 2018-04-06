@@ -1,1 +1,17 @@
-<h1><%= @user.username %></h1>
+<div class="container">
+  <h1>Welcome, <%= @user.username %></h1>
+  <h2>Cart:</h2>
+  <table class="table">
+    <% @cart_products.each_slice(3) do |slice_3_products| %>
+      <tr>
+        <% slice_3_products.each do |product| %>
+          <td class="col-md-3 ">
+            <%= render partial: 'products/product', object: product,
+                       locals: { more_info_link: true, index_link: false,
+                                 full_desc: false, add_to_cart: false } %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+</div>

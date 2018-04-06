@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
   get 'sessions/new'
 
-  resources :users, only: [:show]
-  get 'user/:username', to: 'users#show'
-  get 'register', to: 'users#new'
-  post 'users', to: 'users#create'
+  resources :users do
+    collection do
+      get 'show'
+      get 'user/:username', to: 'users#show'
+      get 'register', to: 'users#new'
+      post 'users', to: 'users#create'
+    end
+  end
 
   # search routes
   get 'search/products'
@@ -17,6 +21,10 @@ Rails.application.routes.draw do
       get 'index'
       get 'new'
       get 'updated'
+    end
+    member do
+      post :add_to_cart
+      post :remove_from_cart
     end
   end
 

@@ -21,4 +21,22 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
   end
+
+  def add_to_cart
+    id = params[:id].to_i
+
+    unless session[:cart].include?(id)
+      session[:cart] << id
+      redirect_to root_path
+    end
+  end
+
+  def remove_from_cart
+    id = params[:id].to_i
+
+    if session[:cart].include?(id)
+      session[:cart].delete(id)
+      redirect_to root_path
+    end
+  end
 end

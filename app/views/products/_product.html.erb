@@ -16,5 +16,10 @@
   </p>
   <p>
     <kbd>CDN $<%= product.price %></kbd>
+    <% if add_to_cart %>
+      <%= link_to 'Add to Cart', add_to_cart_product_path(product.id), method: :post %>
+    <% else %>
+      <%= link_to 'Remove from Cart', remove_from_cart_product_path(product.id), method: :post %>
+    <% end %>
   </p>
 <% end %>
