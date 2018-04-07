@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'orders/create'
+
+  get 'orders/show'
+
   get 'sessions/new'
 
   resources :users do

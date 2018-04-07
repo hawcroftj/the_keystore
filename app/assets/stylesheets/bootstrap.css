@@ -10,26 +10,31 @@
     background-color: #FF71CE !important;
 } .ks-pink-txt {
     color: #ad5784 !important;
+    text-decoration: none !important;
   }
 .ks-blue-bg {
     background-color: #01CDFE !important;
 } .ks-blue-txt {
       color: #0197bd !important;
+      text-decoration: none !important;
   }
 .ks-green-bg {
     background-color: #05FFA1 !important;
 } .ks-green-txt {
       color: #039d62 !important;
+      text-decoration: none !important;
   }
 .ks-purple-bg {
     background-color: #B967FF !important;
 } .ks-purple-txt {
       color: #653589 !important;
+      text-decoration: none !important;
   }
 .ks-yellow-bg {
     background-color: #FFFb96 !important;
 } .ks-yellow-txt {
       color: #83814b !important;
+      text-decoration: none !important;
   }
 
 /* Search bar styles */

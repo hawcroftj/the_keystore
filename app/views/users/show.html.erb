@@ -2,11 +2,11 @@
   <h1>Welcome, <%= @user.username %></h1>
   <div class="row">
     <% if @cart_products.empty? %>
-      <div class="col-sm-9">
+      <div class="col-sm-7">
         <h2>Your cart is empty.</h2>
       </div>
     <% else %>
-      <div class="col-sm-9">
+      <div class="col-sm-7">
         <h2>You have <%= pluralize(@cart_products.count, 'item')  %> in your cart</h2>
       </div>
       <%= render partial: 'subtotal' %>
@@ -15,7 +15,7 @@
       <% @cart_products.each_slice(3) do |slice_3_products| %>
         <tr>
           <% slice_3_products.each do |product| %>
-            <td class="col-md-3 ">
+            <td class="col-md-3">
               <%= render partial: 'products/product', object: product,
                          locals: { more_info_link: true, index_link: false,
                                    full_desc: false, add_to_cart: false } %>
@@ -25,7 +25,7 @@
       <% end %>
     </table>
       <div class="row">
-        <div class="col-sm-9"></div>
+        <div class="col-sm-7"></div>
         <%= render partial: 'subtotal' %>
       </div>
   <% end %>

@@ -1,5 +1,8 @@
 <div class="col-md-3">
-  <p><strong>Subtotal:</strong>
-    <kbd>CDN$<%= @cart_products.sum(&:price) %></kbd>
-  </p>
+  <h5 class="mt-2">Subtotal:
+    <span class="ks-pink-txt">CDN $<%= @cart_products.sum(&:price) %></span>
+  </h5>
+</div>
+<div class="col-md-2">
+  <%= link_to 'Checkout', '#', class: "btn btn-sm btn-block mt-1 ks-pink-bg ks-purple-txt" %>
 </div>
