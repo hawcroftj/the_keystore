@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
   get 'order_details/create'
 
+  resources :orders, only: [:index]
   get 'orders/create'
-
-  get 'orders/show'
-
-  get 'sessions/new'
 
   resources :users do
     collection do
