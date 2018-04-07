@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'order_details/create'
+
   get 'orders/create'
 
   get 'orders/show'
