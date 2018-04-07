@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
   get 'order_details/create'
 
-  resources :orders, only: [:index]
-  get 'orders/create'
+  resources :orders do
+    collection do
+      get 'summary', to: 'orders#index'
+      get 'checkout', to: 'orders#new'
+      get 'error', to: 'orders#error'
+      post 'orders', to: 'orders#create'
+    end
+  end
 
   resources :users do
     collection do

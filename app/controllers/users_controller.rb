@@ -28,8 +28,6 @@ class UsersController < ApplicationController
                                  :city, :post_code, :province_id)
   end
 
-  private
-
   def initialize_session
     session[:cart] ||= []
   end

@@ -1,5 +1,11 @@
 class OrdersController < ApplicationController
+  def new
+    @order = Order.new
+  end
+
   def create
+    @order = Order.new(order_params)
+    @order.save!
   end
 
   def index
@@ -18,5 +24,11 @@ class OrdersController < ApplicationController
         @subtotal +
             ((@local_tax / 100) * @subtotal) +
             ((@federal_tax / 100) * @subtotal)
+  end
+
+  private
+
+  def order_params
+    params.require(:order).permit(:status_id, :user_id)
   end
 end
