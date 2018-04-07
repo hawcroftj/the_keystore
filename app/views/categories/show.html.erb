@@ -7,7 +7,8 @@
         <% slice_3_products.each do |product| %>
           <td class="col-md-3 ">
             <%= render partial: 'products/product', object: product,
-                       locals: { more_info_link: true, index_link: false, full_desc: false } %>
+                       locals: { more_info_link: true, index_link: false,
+                                 full_desc: false, add_to_cart: true } %>
           </td>
         <% end %>
       </tr>
