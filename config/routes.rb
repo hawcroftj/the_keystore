@@ -3,8 +3,7 @@ Rails.application.routes.draw do
 
   resources :orders do
     collection do
-      get 'summary', to: 'orders#index'
-      get 'checkout', to: 'orders#new'
+      get 'summary', to: 'orders#new'
       get 'error', to: 'orders#error'
       post 'orders', to: 'orders#create'
     end
@@ -12,9 +11,9 @@ Rails.application.routes.draw do
 
   resources :users do
     collection do
-      get 'show'
-      get 'user/:username', to: 'users#show'
+      get 'user/:id', to: 'users#show'
       get 'register', to: 'users#new'
+      get 'address', to: 'users#update'
       post 'users', to: 'users#create'
     end
   end

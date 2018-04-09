@@ -1,16 +1,57 @@
 <div class="container">
-  <%= form_for @order, html: {class: "form"} do |f| %>
-    <div class="row">
-      <div class="form-group">
-        <%= f.label :status_id, class: "ks-pink-txt" %>
-        <%= f.text_field :status_id, class: "form-control" %>
+  <div class="row">
+    <h1>Order Summary</h1>
+  </div>
 
-        <%= f.label :user_id, class: "ks-pink-txt" %>
-        <%= f.text_field :user_id, class: "form-control" %>
-      </div>
+  <div class="row">
+    <table class="table">
+      <th>Product</th>
+      <th>Details</th>
+      <th>Price</th>
+      <% @cart_products.each do |product| %>
+        <tr>
+          <td><%= product.name %></td>
+          <td><%= product.category.name %></td>
+          <td><%= number_to_currency(product.price) %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-8">
+      <%= form_for @order, html: {class: "form"} do |f| %>
+          <div class="form-group">
+            <%= f.label :status_id, class: "ks-pink-txt" %>
+            <%= f.collection_select(:status_id, OrderStatus.all, :id, :name) %>
+
+            <%= f.label :user_id, class: "ks-pink-txt" %>
+            <%= f.text_field :user_id, class: "form-control" %>
+
+            <%= f.label :total, class: "ks-pink-txt" %>
+            <%= f.text_field :total, class: "form-control" %>
+
+            <%= f.label :tax_total, class: "ks-pink-txt" %>
+            <%= f.text_field :tax_total, class: "form-control" %>
+          </div>
+          <%= f.submit %>
+      <% end %>
     </div>
-    <div class="row">
-      <%= f.submit %>
+
+    <div class="col-sm-4">
+      <p>Total before tax:
+        <span class="ks-pink-txt float-right"><%= number_to_currency(@cart_products.sum(&:price)) %></span>
+      </p>
+      <p>Estimated PST/RST/QST:
+        <span class="ks-pink-txt float-right"><%= number_to_currency(@cart_products.sum(&:price)) %></span>
+      </p>
+      <p>Estimated GST/HST:
+        <span class="ks-pink-txt float-right"><%= number_to_currency(@cart_products.sum(&:price)) %></span>
+      </p>
+      <p>Total:
+        <span class="ks-pink-txt float-right">CDN <%= number_to_currency(@cart_products.sum(&:price)) %></span>
+      </p>
+      <%= link_to 'Place Order', '#', class: "btn btn-sm btn-block mt-1 ks-pink-bg ks-purple-txt" %>
     </div>
-  <% end %>
+  </div>
 </div>

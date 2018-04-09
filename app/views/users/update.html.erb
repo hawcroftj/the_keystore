@@ -1,0 +1,47 @@
+<div class="container">
+  <h1>Confirm Shipping Address</h1>
+
+  <%= form_for @user, html: {class: "form"} do |f| %>
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="form-group">
+          <%= f.label :first_name, class: "ks-pink-txt" %>
+          <%= f.text_field :first_name, class: "form-control" %>
+
+          <%= f.label :last_name, class: "ks-pink-txt" %>
+          <%= f.text_field :last_name, class: "form-control" %>
+
+          <%= f.label :email, class: "ks-pink-txt" %>
+          <%= f.text_field :email, class: "form-control" %>
+
+          <%= f.label :phone, class: "ks-pink-txt" %>
+          <%= f.text_field :phone, class: "form-control" %>
+
+          <%= f.label :address, class: "ks-pink-txt" %>
+          <%= f.text_field :address, class: "form-control" %>
+
+          <%= f.label :city, class: "ks-pink-txt" %>
+          <%= f.text_field :city, class: "form-control" %>
+        </div>
+        <div class="row">
+          <div class="col-sm-5">
+            <%= f.label :post_code, class: "ks-pink-txt" %>
+            <%= f.text_field :post_code, class: "form-control" %>
+          </div>
+          <div class="col-sm-3">
+            <%= f.label :province_id, class: "ks-pink-txt" %>
+            <%= f.collection_select(:province_id, Province.all, :id, :name) %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3">
+        <%= f.submit 'Update Address', class: "btn btn-sm btn-block mt-2" %>
+      </div>
+      <div class="col-sm-3">
+        <%= link_to 'Ship to this Address', summary_orders_path, class: "btn btn-sm btn-block mt-1 ks-pink-bg ks-purple-txt" %>
+      </div>
+    </div>
+  <% end %>
+</div>

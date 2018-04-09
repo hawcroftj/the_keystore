@@ -1,9 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  status: one
+  order_status: one
   user: one
+  total: 9.99
+  tax_total: 9.99
 
 two:
-  status: two
+  order_status: two
   user: two
+  total: 9.99
+  tax_total: 9.99
