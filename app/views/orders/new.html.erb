@@ -22,8 +22,8 @@
     <div class="col-sm-8">
       <%= form_for @order, html: {class: "form"} do |f| %>
           <div class="form-group">
-            <%= f.label :status_id, class: "ks-pink-txt" %>
-            <%= f.collection_select(:status_id, OrderStatus.all, :id, :name) %>
+            <%= f.label :order_status_id, class: "ks-pink-txt" %>
+            <%= f.collection_select(:order_status_id, OrderStatus.all, :id, :name) %>
 
             <%= f.label :user_id, class: "ks-pink-txt" %>
             <%= f.text_field :user_id, class: "form-control" %>
