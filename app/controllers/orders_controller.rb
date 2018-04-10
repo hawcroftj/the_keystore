@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   def new
     @cart_products = Product.find(session[:cart])
-    @user = session[:current_user]
+    @user = User.find(session[:user_id])
     @order = Order.new
   end
 

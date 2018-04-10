@@ -40,17 +40,16 @@
 
     <div class="col-sm-4">
       <p>Total before tax:
-        <span class="ks-pink-txt float-right"><%= number_to_currency(@cart_products.sum(&:price)) %></span>
+        <span class="ks-pink-txt float-right">
+          <%= number_to_currency(@cart_products.sum(&:price)) %>
+        </span>
       </p>
       <p>Estimated PST/RST/QST:
-        <span class="ks-pink-txt float-right"><%= number_to_currency(@cart_products.sum(&:price)) %></span>
+        <span class="ks-pink-txt float-right">
+          <%= number_to_currency(@cart_products.sum(&:price) * (@user.province.pst_rate / 100)) %>
+        </span>
       </p>
-      <p>Estimated GST/HST:
-        <span class="ks-pink-txt float-right"><%= number_to_currency(@cart_products.sum(&:price)) %></span>
-      </p>
-      <p>Total:
-        <span class="ks-pink-txt float-right">CDN <%= number_to_currency(@cart_products.sum(&:price)) %></span>
-      </p>
+      <%= render partial: 'gst_hst' %>
       <%= link_to 'Place Order', '#', class: "btn btn-sm btn-block mt-1 ks-pink-bg ks-purple-txt" %>
     </div>
   </div>

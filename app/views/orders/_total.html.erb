@@ -1,0 +1,11 @@
+<p>Total:
+  <span class="ks-pink-txt float-right">
+    <% if hst %>
+      CDN <%= number_to_currency(@cart_products.sum(&:price) *
+                                     (@user.province.hst_rate / 100)) %>
+    <% else %>
+      CDN <%= number_to_currency(@cart_products.sum(&:price) *
+                                     ((@user.province.country.gst_rate / 100) + (@user.province.pst_rate / 100) + 1)) %>
+    <% end %>
+  </span>
+</p>
