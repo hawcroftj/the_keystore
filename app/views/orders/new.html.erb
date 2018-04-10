@@ -21,35 +21,36 @@
   <div class="row">
     <div class="col-sm-8">
       <%= form_for @order, html: {class: "form"} do |f| %>
-          <div class="form-group">
-            <%= f.label :order_status_id, class: "ks-pink-txt" %>
-            <%= f.collection_select(:order_status_id, OrderStatus.all, :id, :name) %>
-
-            <%= f.label :user_id, class: "ks-pink-txt" %>
-            <%= f.text_field :user_id, class: "form-control" %>
-
-            <%= f.label :total, class: "ks-pink-txt" %>
-            <%= f.text_field :total, class: "form-control" %>
-
-            <%= f.label :tax_total, class: "ks-pink-txt" %>
-            <%= f.text_field :tax_total, class: "form-control" %>
-          </div>
-          <%= f.submit %>
+        <%= f.hidden_field :updated_at %>
+        <%= f.submit %>
       <% end %>
     </div>
 
     <div class="col-sm-4">
       <p>Total before tax:
         <span class="ks-pink-txt float-right">
-          <%= number_to_currency(@cart_products.sum(&:price)) %>
+          <%= number_to_currency(@cart_total) %>
         </span>
       </p>
       <p>Estimated PST/RST/QST:
         <span class="ks-pink-txt float-right">
-          <%= number_to_currency(@cart_products.sum(&:price) * (@user.province.pst_rate / 100)) %>
+          <%= number_to_currency(@cart_total * (@user.province.pst_rate / 100)) %>
         </span>
       </p>
-      <%= render partial: 'gst_hst' %>
+      <p>Estimated GST/HST:
+        <span class="ks-pink-txt float-right">
+          <% if @user.province.hst_rate != 0 %>
+            <%= number_to_currency(@cart_total * (@user.province.hst_rate / 100)) %>
+          <% else %>
+            <%= number_to_currency(@cart_total * (@user.province.country.gst_rate / 100)) %>
+          <% end %>
+        </span>
+      </p>
+      <p>Total:
+        <span class="ks-pink-txt float-right">
+          <%= number_to_currency(@cart_total + @tax_total) %>
+        </span>
+      </p>
       <%= link_to 'Place Order', '#', class: "btn btn-sm btn-block mt-1 ks-pink-bg ks-purple-txt" %>
     </div>
   </div>
