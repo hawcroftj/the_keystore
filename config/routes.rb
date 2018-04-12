@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'order_details/create'
 
+  resources :charges
+
   resources :orders do
     collection do
       get 'summary', to: 'orders#new'
